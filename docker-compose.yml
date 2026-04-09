@@ -1,0 +1,7 @@
+services:
+  thai-tokenizer-api:
+    build: .
+    container_name: thai-tokenizer-api
+    ports:
+      - "9999:9999"
+    restart: unless-stopped
