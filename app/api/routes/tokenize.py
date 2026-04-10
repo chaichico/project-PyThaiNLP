@@ -23,28 +23,7 @@ tokenize_service = TokenizeService()
 
 @router.post("/tokenize", response_model=TokenizeResponse, tags=["Tokenizer"])
 async def tokenize(request: TokenizeRequest) -> TokenizeResponse:
-    """
-    POST /tokenize - แยกคำภาษาไทยและคืนค่าเป็นข้อความที่แยกคำด้วยช่องว่าง
     
-    Endpoint นี้รับข้อความภาษาไทย (หรือผสมภาษาไทย-อังกฤษ) แล้วแยกคำออกมา
-    โดยใช้ PyThaiNLP library ซึ่งมีความแม่นยำสูงในการแยกคำภาษาไทย
-    
-    Args:
-        request (TokenizeRequest): ข้อมูล request ที่มี field:
-            - text (str): ข้อความที่ต้องการแยกคำ (ต้องมีความยาวอย่างน้อย 1 ตัวอักษร)
-    
-    Returns:
-        TokenizeResponse: ข้อมูล response ที่มี field:
-            - texttoken (str): ข้อความที่แยกคำแล้ว โดยคำแต่ละคำคั่นด้วยช่องว่าง
-    
-    Example:
-        Request:  {"text": "วันนี้คือวันจันทร์"}
-        Response: {"texttoken": "วัน นี้ คือ วัน จันทร์"}
-    
-    HTTP Status Codes:
-        - 200: แยกคำสำเร็จ
-        - 422: ข้อมูล request ไม่ถูกต้อง (validation error)
-    """
     # เรียกใช้ service เพื่อทำการแยกคำ
     result = tokenize_service.tokenize(request.text)
     

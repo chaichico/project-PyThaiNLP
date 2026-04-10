@@ -4,4 +4,3 @@ services:
     container_name: thai-tokenizer-api
     ports:
       - "9999:9999"
-    restart: unless-stopped
