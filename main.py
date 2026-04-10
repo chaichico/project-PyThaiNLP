@@ -17,7 +17,7 @@ app = FastAPI(
     title="Thai Tokenizer API",  # ชื่อ API ที่แสดงใน docs
     description="API สำหรับแยกคำภาษาไทย (Thai Word Tokenization) โดยใช้ PyThaiNLP library",  # คำอธิบาย API
     version="1.0.0",  # เวอร์ชันของ API
-    docs_url="/swagger",  # เปลี่ยน Swagger UI path จาก /docs เป็น /swagger
+    docs_url="/",  # เปลี่ยน Swagger UI path จาก /docs เป็น /
     redoc_url="/redoc",  # ReDoc path (เก็บไว้เหมือนเดิม)
 )
 

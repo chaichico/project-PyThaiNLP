@@ -21,14 +21,10 @@ class TokenizeRequest(BaseModel):
             - ต้องมีความยาวอย่างน้อย 1 ตัวอักษร (min_length=1)
             - รองรับภาษาไทยล้วนหรือผสมภาษาไทย-อังกฤษ
             - ... หมายถึง field นี้เป็น required (ต้องส่งมาเสมอ)
-    
-    Example:
-        {"text": "วันนี้คือวันจันทร์"}
     """
     text: str = Field(
         ...,  # Required field (ต้องส่งมาเสมอ)
         min_length=1,  # ความยาวขั้นต่ำ 1 ตัวอักษร
-        example="วันนี้คือวันจันทร์"  # ตัวอย่างที่แสดงใน API docs
     )
 
 
@@ -40,11 +36,8 @@ class TokenizeResponse(BaseModel):
         texttoken (str): ข้อความที่แยกคำแล้ว
             - คำแต่ละคำจะคั่นด้วยช่องว่าง (space)
             - รูปแบบ: "คำ1 คำ2 คำ3 ..."
-    
-    Example:
-        {"texttoken": "วัน นี้ คือ วัน จันทร์"}
+
     """
     texttoken: str = Field(
         ...,  # Required field (จะส่งกลับเสมอ)
-        example="วัน นี้ คือ วัน จันทร์"  # ตัวอย่างที่แสดงใน API docs
     )
