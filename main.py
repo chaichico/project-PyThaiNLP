@@ -26,7 +26,7 @@ app = FastAPI(
 app.include_router(tokenize.router)
 
 
-@app.get("/", tags=["Health"])
+@app.get("/health", tags=["Health"])
 async def root():
     """
     Health Check Endpoint
